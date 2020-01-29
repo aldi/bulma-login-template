@@ -1,0 +1,60 @@
+html,
+body {
+  font-family: 'Quicksand', serif;
+  font-size: 14px;
+  font-weight: 300;
+  overflow-y: hidden;
+  background: url('../media/background.webp') center/cover no-repeat;
+}
+
+.box {
+  margin-top: 5rem;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+input {
+  font-weight: 300;
+}
+
+p {
+  font-weight: 700;
+}
+
+p.subtitle {
+  padding-top: 1rem;
+}
+
+a {
+  color: #fff;
+}
+
+a:hover {
+  color: #bababa;
+}
+
+.languages {
+  margin-top: 10px;
+}
+
+.footer-text {
+  font-weight: initial;
+}
+
+input[type=checkbox] {
+  vertical-align: top;
+}
+
+.checkbox {
+  line-height: 1;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
