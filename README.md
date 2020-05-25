@@ -1,8 +1,15 @@
-## Bulma Login Template designed using Bulma CSS Framework.
+# Bulma Login Template
+
 Part of [Awesome Bulma Templates](https://github.com/aldi/awesome-bulma-templates) repo
 
 ## [Live Demo](https://aldi.github.io/bulma-login-template/index.html)
-![](https://github.com/aldi/bulma-login-template/blob/master/screenshot.png)
+
+![Screenshot](screenshot.png)
+
+## Additional Libraries used
+
+Font-Awesome - [github.com/FortAwesome/Font-Awesome](https://github.com/FortAwesome/Font-Awesome)  
+Bulma-Social - [github.com/aldi/bulma-social](https://github.com/aldi/bulma-social)
 
 ## Contributing
 
@@ -14,4 +21,4 @@ Part of [Awesome Bulma Templates](https://github.com/aldi/awesome-bulma-template
 
 ## Licence
 
-MIT license
+Code released under [the MIT license](https://github.com/aldi/bulma-login-template/blob/master/LICENSE.md).

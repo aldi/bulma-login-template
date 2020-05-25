@@ -1,30 +1,32 @@
-html,body {
-  font-family: 'Tajawal', serif;
+html,
+body {
+  font-family: 'Quicksand', serif;
   font-size: 14px;
   font-weight: 300;
 }
 
 html {
   overflow-y: hidden !important;
-  background-image: url("https://github.com/aldi/bulma-login-template/raw/master/media/background.jpg") !important;
-    -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size:cover; 
-  background-size:cover;
+  background-image: url('../media/background.jpg') !important;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .hero.is-success {
-  background: #F2F6FA;
+  background: #f2f6fa;
 }
-.hero .nav, .hero.is-success .nav {
+.hero .nav,
+.hero.is-success .nav {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
 .box {
   margin-top: 5rem;
-  background-color: rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.1);
 }
 input {
   font-weight: 300;
@@ -40,10 +42,14 @@ a {
   color: #fff;
 }
 
-.fa-sign-in-alt {
-  font-size: 36px;
+a:hover {
+  color: #bababa;
 }
 
 .languages {
   margin-top: 10px;
+}
+
+.footer-text {
+  font-weight: initial;
 }
