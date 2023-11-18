@@ -7,7 +7,8 @@ body {
 
 html {
   overflow-y: hidden !important;
-  background-image: url('../media/background.jpg') !important;
+  background-color: #f9f9f9;
+  /* background-image: url('../media/background.jpg') !important; */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
