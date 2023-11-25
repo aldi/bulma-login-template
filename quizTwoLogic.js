@@ -82,7 +82,6 @@ function handleSubmit(event) {
   countOption3 = countOption3/totalQuestions;
 
   var learningPreferences;
-  console.log(learningTypeGlobal)
   if (learningTypeGlobal == "Visual"){
     learningPreferences = {
       "Linguistic":countOption1, 
@@ -116,4 +115,19 @@ function handleSubmit(event) {
 
   // Scroll to the results section
   resultsSection.scrollIntoView();
+
+  // Assuming learningPreferences is correctly calculated
+    // Save it to localStorage
+    localStorage.setItem('learningPreferences', JSON.stringify(learningPreferences));
+
+    // Get current user ID - implement this according to your authentication system
+    getCurrentUserId()
+    .then(userId => {
+        processSurveyResults(userId);
+        // Additional logic after obtaining the user ID
+    })
+    .catch(error => {
+        console.error(error);
+        // Handle the case where no user is logged in
+    });
 }
