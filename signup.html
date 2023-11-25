@@ -13,15 +13,18 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
-  </head>
+</head>
+
   <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
     <section class="hero is-fullheight">
       <div class="hero-body">
         <div class="container has-text-centered">
           <div class="column is-4 is-offset-4">
             <div class="box">
               <p class="subtitle is-4">Sign Up</p>
-              <form action="signup_process.php" method="post">
+              <form id="signupForm" method="post">
                 <!-- Username Field -->
                 <div class="field">
                     <label class="label">Username</label>
@@ -58,5 +61,7 @@
         </div>
       </div>
     </section>
+    <script type="module" src="firebaseHandler.js"></script>
+
   </body>
 </html>
