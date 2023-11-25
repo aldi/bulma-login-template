@@ -1,3 +1,5 @@
+var learningTypeGlobal; // Declare a global variable to store the learning type
+
 function navigate(direction, currentQuestionIndex) {
   var currentQuestion = document.getElementById('question' + currentQuestionIndex); // Use currentQuestionIndex
   var radios = currentQuestion.getElementsByTagName('input');
@@ -73,12 +75,13 @@ function handleSubmit(event) {
 
   // Determine the result based on counts
   var resultMessageText = "";
+  var learningType = "";
   if (countOption1 > countOption2) {
-      resultMessageText = "You seem to be more of a visual learner!";
-  } else if (countOption2 > countOption1) {
-      resultMessageText = "You seem to be more of an auditory learner!";
+      resultMessageText = "You seem to primarily be a visual learner!";
+      learningTypeGlobal = "Visual"
   } else {
-      resultMessageText = "You have a balanced learning style!";
+      resultMessageText = "You seem to primarily be an auditory learner!";
+      learningTypeGlobal = "Auditory";
   }
 
   // Show the results section
@@ -91,4 +94,17 @@ function handleSubmit(event) {
 
   // Scroll to the results section
   resultsSection.scrollIntoView();
+}
+
+function determineNextPage(learningType) {
+  if (learningType == "Visual") {
+      window.location.href = 'quiz_two_visual.html';
+  } else {
+      window.location.href = 'quiz_two_auditory.html';
+  }
+}
+
+function onContinueClick() {
+  // Use the global variable to determine the next page
+  determineNextPage(learningTypeGlobal);
 }
