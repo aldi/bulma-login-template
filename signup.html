@@ -13,35 +13,42 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" />
     <link rel="stylesheet" href="css/styles.css" />
-  </head>
+</head>
+
   <body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
+
     <section class="hero is-fullheight">
       <div class="hero-body">
         <div class="container has-text-centered">
           <div class="column is-4 is-offset-4">
             <div class="box">
               <p class="subtitle is-4">Sign Up</p>
-              <form>
+              <form id="signupForm" method="post">
+                <!-- Username Field -->
                 <div class="field">
                     <label class="label">Username</label>
                     <div class="control">
-                      <input class="input" type="text" placeholder="Username">
+                        <input class="input" type="text" name="username" placeholder="Email">
                     </div>
-                  </div>
-    
-                  <div class="field">
+                </div>
+            
+                <!-- Password Field -->
+                <div class="field">
                     <label class="label">Password</label>
                     <div class="control">
-                      <input class="input" type="password" placeholder="Password">
+                        <input class="input" type="password" name="password" placeholder="Password">
                     </div>
-                  </div>
-  
-                  <div class="field">
+                </div>
+            
+                <!-- Submit Button -->
+                <div class="field">
                     <div class="control">
-                      <a href="survey.html" class="button is-primary">Sign Up</a>
+                        <button type="submit" class="button is-primary">Sign Up</button>
                     </div>
-                  </div>
-              </form>
+                </div>
+            </form>
+            
             </div>
           </div>
         </div>
@@ -54,5 +61,7 @@
         </div>
       </div>
     </section>
+    <script type="module" src="firebaseHandler.js"></script>
+
   </body>
 </html>
