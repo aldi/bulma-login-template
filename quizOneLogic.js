@@ -44,12 +44,10 @@ function startQuiz() {
 }
 
 function handleSubmit(event) {
-  // Prevent the default form submission
   event.preventDefault();
 
   var form = document.getElementById('quiz-form');
   var answers = {};
-  //var answerOptionCounts = []
   var countOption1 = 0;
   var countOption2 = 0;
 
@@ -75,7 +73,6 @@ function handleSubmit(event) {
 
   // Determine the result based on counts
   var resultMessageText = "";
-  var learningType = "";
   if (countOption1 > countOption2) {
       resultMessageText = "You seem to primarily be a visual learner!";
       learningTypeGlobal = "Visual"
@@ -96,15 +93,10 @@ function handleSubmit(event) {
   resultsSection.scrollIntoView();
 }
 
-function determineNextPage(learningType) {
-  if (learningType == "Visual") {
-      window.location.href = 'quiz_two_visual.html';
-  } else {
-      window.location.href = 'quiz_two_auditory.html';
-  }
-}
-
 function onContinueClick() {
-  // Use the global variable to determine the next page
-  determineNextPage(learningTypeGlobal);
+  if (learningTypeGlobal == "Visual") {
+    window.location.href = 'quiz_two_visual.html';
+} else {
+    window.location.href = 'quiz_two_auditory.html';
+}
 }
