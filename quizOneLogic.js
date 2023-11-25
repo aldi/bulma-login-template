@@ -1,26 +1,40 @@
 function navigate(direction, currentQuestionIndex) {
-    var totalQuestions = document.getElementsByClassName('question').length;
-    var newQuestionIndex = direction === 'next' ? currentQuestionIndex + 1 : currentQuestionIndex - 1;
-    
-    // Hide current question
-    if (currentQuestionIndex > 0) {
-        document.getElementById('question' + currentQuestionIndex).style.display = 'none';
-    }
-    
-    // Show new question
-    var newQuestion = document.getElementById('question' + newQuestionIndex);
-    if (newQuestion) {
-        newQuestion.style.display = 'block';
-    } else {
-        // Handle out of bounds navigation
-        if (newQuestionIndex < 1) {
-            newQuestionIndex = 1; // Loop back to first question if going back from first question
-        } else if (newQuestionIndex > totalQuestions) {
-            newQuestionIndex = totalQuestions; // Prevent going beyond the last question
-        }
-        document.getElementById('question' + newQuestionIndex).style.display = 'block';
-    }
+  var currentQuestion = document.getElementById('question' + currentQuestionIndex); // Use currentQuestionIndex
+  var radios = currentQuestion.getElementsByTagName('input');
+          
+  if (direction === 'next') {
+      // Check if any radio button is selected
+      var isSelected = Array.from(radios).some(radio => radio.checked);
+      
+      if (!isSelected) {
+          alert('Please select an option to continue.');
+          return; // Do not navigate to the next question
+      }
+  }
+
+  var totalQuestions = document.getElementsByClassName('question').length;
+  var newQuestionIndex = direction === 'next' ? currentQuestionIndex + 1 : currentQuestionIndex - 1;
+  
+  // Hide current question
+  if (currentQuestionIndex > 0) {
+      document.getElementById('question' + currentQuestionIndex).style.display = 'none';
+  }
+  
+  // Show new question
+  var newQuestion = document.getElementById('question' + newQuestionIndex);
+  if (newQuestion) {
+      newQuestion.style.display = 'block';
+  } else {
+      // Handle out of bounds navigation
+      if (newQuestionIndex < 1) {
+          newQuestionIndex = 1; // Loop back to first question if going back from first question
+      } else if (newQuestionIndex > totalQuestions) {
+          newQuestionIndex = totalQuestions; // Prevent going beyond the last question
+      }
+      document.getElementById('question' + newQuestionIndex).style.display = 'block';
+  }
 }
+
 
 function startQuiz() {
     document.getElementById('home-screen').style.display = 'none';
