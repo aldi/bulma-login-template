@@ -130,7 +130,8 @@
       <div class="hero-body">
           <div class="container has-text-centered">
               <div class="column is-6 is-offset-3">
-                  <h1 class="title" id="resultMessage"></h1>
+                  <h1 class="title">Here are your results:</h1>
+                  <p class="subtitle" id="resultMessage"></p>
               </div>
           </div>
       </div>
@@ -138,7 +139,7 @@
     <!-- Results Section End -->
 
     <!-- JavaScript for Navigation and Quiz Start -->
-<script>
+<script> 
   function navigate(direction, currentQuestionIndex) {
       var totalQuestions = document.getElementsByClassName('question').length;
       var newQuestionIndex = direction === 'next' ? currentQuestionIndex + 1 : currentQuestionIndex - 1;
@@ -174,6 +175,7 @@
 
     var form = document.getElementById('quiz-form');
     var answers = {};
+    //var answerOptionCounts = []
     var countOption1 = 0;
     var countOption2 = 0;
 
@@ -198,25 +200,22 @@
     }
 
     // Determine the result based on counts
-    var resultMessage = "";
+    var resultMessageText = "";
     if (countOption1 > countOption2) {
-      resultMessage = "You seem to be more of a visual learner!";
+        resultMessageText = "You seem to be more of a visual learner!";
     } else if (countOption2 > countOption1) {
-      resultMessage = "You seem to be more of an auditory learner!";
+        resultMessageText = "You seem to be more of an auditory learner!";
     } else {
-      resultMessage = "You have a balanced learning style!";
+        resultMessageText = "You have a balanced learning style!";
     }
-
-    // Hide the quiz section
-    document.getElementById('survey-section').style.display = 'none';
 
     // Show the results section
     var resultsSection = document.getElementById('results-section');
     resultsSection.style.display = 'block';
 
-    // Set the result message
-    var resultMessage = document.getElementById('resultMessage');
-    resultMessage.textContent = resultMessageText;
+    // Set the result message text
+    var resultMessageElement = document.getElementById('resultMessage');
+    resultMessageElement.textContent = resultMessageText;
 
     // Scroll to the results section
     resultsSection.scrollIntoView();
