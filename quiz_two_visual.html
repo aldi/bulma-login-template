@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Visual Learner Quiz" />
+    <link rel="canonical" href="https://aldi.github.io/bulma-login-template/" />
+    <title>Visual Learning Style Quiz - Chat Tutor</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-social@1/bin/bulma-social.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.13.0/css/all.min.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <style>
+        .question {
+            display: none;
+        }
+        /* Custom label style for questions */
+        #question-container .label {
+            font-size: 1.50rem; /* Adjust the font size as needed */
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Home Screen Section Start -->
+    <section class="hero is-fullheight" id="home-screen">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-6 is-offset-3">
+                    <h1 class="title">What Type of Visual Learner Are You?</h1>
+                    <p class="subtitle">Instructions: For each question, choose the option that you relate to the most. There are no right or wrong answers; just go with your first instinct.</p>
+                    <button class="button is-primary" onclick="startQuiz()">Begin</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Screen Section End -->
+
+    <!-- Survey Section Start -->
+    <section class="hero is-fullheight" id="survey-section">
+        <div class="hero-body">
+            <div class="container has-text-centered">
+                <div class="column is-4 is-offset-4">
+                    <form id="quiz-form" method="post" onsubmit="return handleSubmit(event)">
+                        <div class="box" id="question-container">
+
+                            <!-- Question 1 -->
+                            <div class="question" id="question1">
+                                <div class="field">
+                                    <label class="label">When planning a vacation, you prefer:</label>
+                                    <div class="control">
+                                        <label class="radio">
+                                            <input type="radio" name="question1" value="0">
+                                            Reading travel blogs and itineraries
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="question1" value="1">
+                                            Studying maps and charts of the area
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" name="question1" value="2">
+                                            Browsing through travel photos and aesthetic guides
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="buttons is-centered are-medium">
+                                    <button type="button" onclick="navigate('next', 1)" class="button is-primary">Next</button>
+                                </div>
+                            </div>
+                            
+                            <!-- Question 2 -->
+                            <div class="question" id="question2">
+                              <div class="field">
+                                <label class="label">After attending a presentation, you mostly remember:</label>
+                                <div class="control">
+                                    <label class="radio">
+                                        <input type="radio" name="question2" value="0">
+                                        The handouts or written summaries
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="question2" value="1">
+                                        The graphs, charts, or models used
+                                    </label>
+                                    <label class="radio">
+                                        <input type="radio" name="question2" value="2">
+                                        The design and visual style of the presentation
+                                    </label>
+                                </div>
+                            </div>
+                                <div class="buttons is-centered are-medium">
+                                    <button type="button" onclick="navigate('back', 2)" class="button is-light">Back</button>
+                                    <button type="button" onclick="navigate('next', 2)" class="button is-primary">Next</button>
+                                </div>
+                            </div>
+
+                            <!-- Question 3 -->
+                            <div class="question" id="question3">
+                                <div class="field">
+                                  <label class="label">To unwind, you usually:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question3" value="0">
+                                          Read a book or journal
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question3" value="1">
+                                          Solve puzzles or play strategy games
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="question3" value="2">
+                                        Engage in arts and crafts or watch visually rich movies
+                                    </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 3)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 3)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+                            
+                            <!-- Question 4 -->
+                            <div class="question" id="question4">
+                                <div class="field">
+                                  <label class="label">When trying to understand a new concept, you find it easier when:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question4" value="0">
+                                          It's explained in text or through examples
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question4" value="1">
+                                          It's represented through symbols or abstract forms
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="question4" value="2">
+                                        It's illustrated with visually compelling images or layouts
+                                    </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 4)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 4)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+                            
+                            <!-- Question 5 -->
+                            <div class="question" id="question5">
+                                <div class="field">
+                                  <label class="label">Your workspace is typically:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question5" value="0">
+                                          Neat, with organized notes and lists
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question5" value="1">
+                                          Filled with diagrams, sticky notes, and mind maps
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="question5" value="2">
+                                        Aesthetically pleasing with a focus on design and color
+                                    </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 5)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 5)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+
+                            <!-- Question 6 -->
+                            <div class="question" id="question6">
+                                <div class="field">
+                                  <label class="label">When recalling a favorite movie or book, you mainly remember:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question6" value="0">
+                                          The dialogue or the narrative structure
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question6" value="1">
+                                          The symbolic meanings or thematic elements
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="question6" value="2">
+                                        The visual style or art direction
+                                    </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 6)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 6)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+
+                            <!-- Question 7 -->
+                            <div class="question" id="question7">
+                                <div class="field">
+                                  <label class="label">If you were to learn a new language, you would:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question7" value="0">
+                                          Use flashcards with words and phrases
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question7" value="1">
+                                          Prefer charts showing grammar patterns or sentence structures
+                                      </label>
+                                      <label class="radio">
+                                        <input type="radio" name="question7" value="2">
+                                        Enjoy using apps with interactive and colorful interfaces
+                                    </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 7)" class="button is-light">Back</button>
+                                      <button type="submit" class="button is-primary">Finish</button>
+                                  </div>
+                              </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="hero-foot">
+            <div class="container has-text-centered">
+                <p class="footer-text">
+                    <a href="https://www.aldiduzha.com?utm_source=Github" style="color: white;">Designed with <i class="fa fa-heart fa-fw" style="font-size: 10px; color: red;"></i> by Aldi Duzha</a>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- Survey Section End -->
+
+    <!-- Results Section Start - Initially Hidden -->
+    <section class="hero is-fullheight" id="results-section" style="display: none;">
+      <div class="hero-body">
+          <div class="container has-text-centered">
+              <div class="column is-6 is-offset-3">
+                  <h1 class="title">Here are your results:</h1>
+                  <p class="subtitle" id="resultMessage"></p>
+              </div>
+          </div>
+      </div>
+    </section>
+    <!-- Results Section End -->
+
+    <!-- JavaScript for Navigation and Quiz Start -->
+    <!-- change this script source source to it directs to a different location -->
+    <script src="quizOneLogic.js"></script> 
+</body>
+</html>
