@@ -1,56 +1,76 @@
 html,
 body {
-  font-family: 'Quicksand', serif;
-  font-size: 14px;
-  font-weight: 300;
+  font-family: 'Quicksand', sans-serif;
+  font-size: 16px;
+  font-weight: 400; 
+  color: #333; 
 }
 
 html {
   overflow-y: hidden !important;
-  background-color: lightgray;
-  /* background-image: url('../media/background.jpg') !important; */
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-color: #f4f4f4;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 .hero.is-success {
-  background: #f2f6fa;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-.hero .nav,
-.hero.is-success .nav {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
+
 .box {
   margin-top: 5rem;
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #eaeaea; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  border-radius: 8px;
+  padding: 2rem;
 }
-input {
-  font-weight: 300;
+
+input[type='radio'] {
+  margin-right: 0.5rem;
 }
-p {
-  font-weight: 700;
+
+label {
+  font-size: 1rem;
+  font-weight: 400;
 }
+
 p.subtitle {
+  font-size: 1.1rem;
+  font-weight: 400;
   padding-top: 1rem;
+  color: #666; 
+}
+
+.button {
+  background-color: #27dac2; 
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 0.2rem 1rem;
+  font-weight: 700;
+  text-transform: uppercase; 
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #37b0a0; 
 }
 
 a {
-  color: #fff;
+  color: #3273dc;
 }
 
 a:hover {
-  color: #bababa;
+  color: #2656a3;
 }
 
 .languages {
-  margin-top: 10px;
+  margin-top: 1rem;
 }
 
 .footer-text {
-  font-weight: initial;
+  font-weight: 400;
+  color: #888;
 }
