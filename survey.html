@@ -67,18 +67,18 @@
                                 </div>
                             </div>
                             
-                            <!-- Question 2 (Example of a second question) -->
+                            <!-- Question 2 -->
                             <div class="question" id="question2">
                               <div class="field">
-                                <label class="label">In a lecture, are you more likely to remember:</label>
+                                <label class="label">If you have to assemble a piece of furniture, would you:</label>
                                 <div class="control">
                                     <label class="radio">
                                         <input type="radio" name="question2" value="0">
-                                        The slides and visuals presented by the instructor?
+                                        Refer to the diagram instructions?
                                     </label>
                                     <label class="radio">
                                         <input type="radio" name="question2" value="1">
-                                        The specific words and phrases used by the instructor?
+                                        Prefer to have someone explain the process to you?
                                     </label>
                                 </div>
                             </div>
@@ -88,25 +88,191 @@
                                 </div>
                             </div>
 
-                            <!-- Additional Questions would follow the same structure -->
-
-                            <!-- Example of a final question without a Next button -->
+                            <!-- Question 3 -->
                             <div class="question" id="question3">
+                                <div class="field">
+                                  <label class="label">When recalling a past event, do you:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question3" value="0">
+                                          Picture the scene in your mind with details?
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question3" value="1">
+                                          Hear the voices and sounds from the event?
+                                      </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 3)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 3)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+                            
+                            <!-- Question 4 -->
+                            <div class="question" id="question4">
+                                <div class="field">
+                                  <label class="label">For memorization, do you:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question4" value="0">
+                                          Write things down and use visual aids like color coding?
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question4" value="1">
+                                          Repeat information out loud or use rhythm and rhyme?
+                                      </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 4)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 4)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+                            
+                            <!-- Question 5 -->
+                            <div class="question" id="question5">
+                                <div class="field">
+                                  <label class="label">When you are reading, do you:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question5" value="0">
+                                          Prefer to have text and diagrams in front of you?
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question5" value="1">
+                                          Enjoy listening to the audio version of the content?
+                                      </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 5)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 5)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+
+                            <!-- Question 6 -->
+                            <div class="question" id="question6">
+                                <div class="field">
+                                  <label class="label">If you need directions, do you:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question6" value="0">
+                                          Look at a map or a diagram?
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question6" value="1">
+                                          Ask someone to explain the way?
+                                      </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 6)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 6)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+
+                            <!-- Question 7 -->
+                            <div class="question" id="question7">
+                                <div class="field">
+                                  <label class="label">How do you prefer to learn a new language?</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question7" value="0">
+                                          Using flashcards and writing down words and phrases?
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question7" value="1">
+                                          Through conversation and listening to native speakers?
+                                      </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 7)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 7)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+
+                            <!-- Question 8 -->
+                            <div class="question" id="question8">
+                                <div class="field">
+                                  <label class="label">How do you usually take notes?</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question8" value="0">
+                                          Organizing them with bullet points, charts, or mind maps?
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question8" value="1">
+                                          Writing down verbatim what the instructor says?
+                                      </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 8)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 8)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+
+                            <!-- Question 9 -->
+                            <div class="question" id="question9">
+                                <div class="field">
+                                  <label class="label">If you need to remember someone's name, do you:</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question9" value="0">
+                                          Visualize the name written down?
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question9" value="1">
+                                          Say the name several times to yourself?
+                                      </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 9)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 9)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+
+                            <!-- Question 10 -->
+                            <div class="question" id="question10">
+                                <div class="field">
+                                  <label class="label">When following a recipe, do you</label>
+                                  <div class="control">
+                                      <label class="radio">
+                                          <input type="radio" name="question10" value="0">
+                                          Like to have a cookbook with pictures or a recipe card in front of you?
+                                      </label>
+                                      <label class="radio">
+                                          <input type="radio" name="question10" value="1">
+                                          Prefer listening to cooking videos or audio instructions?
+                                      </label>
+                                  </div>
+                              </div>
+                                  <div class="buttons is-centered are-medium">
+                                      <button type="button" onclick="navigate('back', 10)" class="button is-light">Back</button>
+                                      <button type="button" onclick="navigate('next', 10)" class="button is-primary">Next</button>
+                                  </div>
+                              </div>
+
+                            <!-- Question 11 - final question -->
+                            <div class="question" id="question11">
                               <div class="field">
                                 <label class="label">When planning your schedule, do you:</label>
                                 <div class="control">
                                     <label class="radio">
-                                        <input type="radio" name="question3" value="0">
+                                        <input type="radio" name="question11" value="0">
                                         Write it down in a planner or use a digital calendar with visual reminders?
                                     </label>
                                     <label class="radio">
-                                        <input type="radio" name="question3" value="1">
+                                        <input type="radio" name="question11" value="1">
                                         Set audible alerts and reminders on your devices?
                                     </label>
                                 </div>
                             </div>
                                 <div class="buttons is-centered are-medium">
-                                    <button type="button" onclick="navigate('back', 3)" class="button is-light">Back</button>
+                                    <button type="button" onclick="navigate('back', 11)" class="button is-light">Back</button>
                                     <button type="submit" class="button is-primary">Finish</button>
                                 </div>
                             </div>
@@ -139,88 +305,6 @@
     <!-- Results Section End -->
 
     <!-- JavaScript for Navigation and Quiz Start -->
-<script> 
-  function navigate(direction, currentQuestionIndex) {
-      var totalQuestions = document.getElementsByClassName('question').length;
-      var newQuestionIndex = direction === 'next' ? currentQuestionIndex + 1 : currentQuestionIndex - 1;
-      
-      // Hide current question
-      if (currentQuestionIndex > 0) {
-          document.getElementById('question' + currentQuestionIndex).style.display = 'none';
-      }
-      
-      // Show new question
-      var newQuestion = document.getElementById('question' + newQuestionIndex);
-      if (newQuestion) {
-          newQuestion.style.display = 'block';
-      } else {
-          // Handle out of bounds navigation
-          if (newQuestionIndex < 1) {
-              newQuestionIndex = 1; // Loop back to first question if going back from first question
-          } else if (newQuestionIndex > totalQuestions) {
-              newQuestionIndex = totalQuestions; // Prevent going beyond the last question
-          }
-          document.getElementById('question' + newQuestionIndex).style.display = 'block';
-      }
-  }
-
-  function startQuiz() {
-      document.getElementById('home-screen').style.display = 'none';
-      document.getElementById('question1').style.display = 'block';
-  }
-
-  function handleSubmit(event) {
-    // Prevent the default form submission
-    event.preventDefault();
-
-    var form = document.getElementById('quiz-form');
-    var answers = {};
-    //var answerOptionCounts = []
-    var countOption1 = 0;
-    var countOption2 = 0;
-
-    // Iterate over each question
-    for (var i = 1; i <= form.elements.length; i++) {
-      if(form.elements['question' + i]) {
-        var radios = form.elements['question' + i];
-        // Iterate over radio buttons within the question
-        for (var j = 0; j < radios.length; j++) {
-          if (radios[j].checked) {
-            // If a radio button is checked, add the value to the answers object
-            answers['question' + i] = radios[j].value;
-            if (radios[j].value === "0") {
-              countOption1++;
-            } else if (radios[j].value === "1") {
-              countOption2++;
-            }
-            break; // Stop looking through the rest once we've found the checked one
-          }
-        }
-      }
-    }
-
-    // Determine the result based on counts
-    var resultMessageText = "";
-    if (countOption1 > countOption2) {
-        resultMessageText = "You seem to be more of a visual learner!";
-    } else if (countOption2 > countOption1) {
-        resultMessageText = "You seem to be more of an auditory learner!";
-    } else {
-        resultMessageText = "You have a balanced learning style!";
-    }
-
-    // Show the results section
-    var resultsSection = document.getElementById('results-section');
-    resultsSection.style.display = 'block';
-
-    // Set the result message text
-    var resultMessageElement = document.getElementById('resultMessage');
-    resultMessageElement.textContent = resultMessageText;
-
-    // Scroll to the results section
-    resultsSection.scrollIntoView();
-  }
-
-</script>
+    <script src="surveyLogic.js"></script>
 </body>
 </html>
