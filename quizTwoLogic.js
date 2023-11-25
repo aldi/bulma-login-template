@@ -1,3 +1,7 @@
+var totalQuestions = 0;
+// Retrieve from local storage
+var learningTypeGlobal = localStorage.getItem('learningType');
+
 function navigate(direction, currentQuestionIndex) {
 
     var currentQuestion = document.getElementById('question' + currentQuestionIndex); // Use currentQuestionIndex
@@ -12,7 +16,7 @@ function navigate(direction, currentQuestionIndex) {
             return; // Do not navigate to the next question
         }
     }
-    var totalQuestions = document.getElementsByClassName('question').length;
+    totalQuestions = document.getElementsByClassName('question').length;
     var newQuestionIndex = direction === 'next' ? currentQuestionIndex + 1 : currentQuestionIndex - 1;
     
     // Hide current question
@@ -78,15 +82,16 @@ function handleSubmit(event) {
   countOption3 = countOption3/totalQuestions;
 
   var learningPreferences;
-  if (resultMessageText.includes("visual")){
-    var learningPreferences = {
+  console.log(learningTypeGlobal)
+  if (learningTypeGlobal == "Visual"){
+    learningPreferences = {
       "Linguistic":countOption1, 
       "Symbolic":countOption2, 
       "Artistic":countOption3
     };
 
   } else{
-    var learningPreferences = {
+    learningPreferences = {
       "Poetic":countOption1, 
       "Story-Telling":countOption2, 
       "Conversational":countOption3
@@ -95,10 +100,10 @@ function handleSubmit(event) {
 
   // print out the content of learningPreferences 
 // Create a message from the learningPreferences dictionary
-  var resultText = "Your Learning Preferences:\n";
+  var resultText = "Your Learning Preferences:<br>";
   for (var key in learningPreferences) {
       if (learningPreferences.hasOwnProperty(key)) {
-          resultText += key + ": " + (learningPreferences[key] * 100).toFixed(2) + "%\n";
+          resultText += key + ": " + (learningPreferences[key] * 100).toFixed(2) + "%<br>";
       }
   }
   // Show the results section
@@ -107,7 +112,7 @@ function handleSubmit(event) {
 
   // Set the result message text
   var resultElement = document.getElementById('resultMessage');
-  resultElement.textContent = resultText;
+  resultElement.innerHTML = resultText;
 
   // Scroll to the results section
   resultsSection.scrollIntoView();

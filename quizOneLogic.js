@@ -50,6 +50,7 @@ function handleSubmit(event) {
   var answers = {};
   var countOption1 = 0;
   var countOption2 = 0;
+  
 
   // Iterate over each question
   for (var i = 1; i <= form.elements.length; i++) {
@@ -99,4 +100,7 @@ function onContinueClick() {
 } else {
     window.location.href = 'quiz_two_auditory.html';
 }
+
+  localStorage.setItem('learningType', learningTypeGlobal);
 }
+
