@@ -1,4 +1,17 @@
 function navigate(direction, currentQuestionIndex) {
+
+    var currentQuestion = document.getElementById('question' + currentQuestionIndex); // Use currentQuestionIndex
+    var radios = currentQuestion.getElementsByTagName('input');
+            
+    if (direction === 'next') {
+        // Check if any radio button is selected
+        var isSelected = Array.from(radios).some(radio => radio.checked);
+        
+        if (!isSelected) {
+            alert('Please select an option to continue.');
+            return; // Do not navigate to the next question
+        }
+    }
     var totalQuestions = document.getElementsByClassName('question').length;
     var newQuestionIndex = direction === 'next' ? currentQuestionIndex + 1 : currentQuestionIndex - 1;
     
@@ -36,6 +49,7 @@ function handleSubmit(event) {
   //var answerOptionCounts = []
   var countOption1 = 0;
   var countOption2 = 0;
+  var countOption3 = 0;
 
   // Iterate over each question
   for (var i = 1; i <= form.elements.length; i++) {
@@ -50,6 +64,8 @@ function handleSubmit(event) {
             countOption1++;
           } else if (radios[j].value === "1") {
             countOption2++;
+          } else if (radios[j].value === "2") {
+            countOption3++;
           }
           break; // Stop looking through the rest once we've found the checked one
         }
@@ -57,23 +73,41 @@ function handleSubmit(event) {
     }
   }
 
-  // Determine the result based on counts
-  var resultMessageText = "";
-  if (countOption1 > countOption2) {
-      resultMessageText = "You seem to be more of a visual learner!";
-  } else if (countOption2 > countOption1) {
-      resultMessageText = "You seem to be more of an auditory learner!";
-  } else {
-      resultMessageText = "You have a balanced learning style!";
+  countOption1 = countOption1/totalQuestions;
+  countOption2 = countOption2/totalQuestions;
+  countOption3 = countOption3/totalQuestions;
+
+  var learningPreferences;
+  if (resultMessageText.includes("visual")){
+    var learningPreferences = {
+      "Linguistic":countOption1, 
+      "Symbolic":countOption2, 
+      "Artistic":countOption3
+    };
+
+  } else{
+    var learningPreferences = {
+      "Poetic":countOption1, 
+      "Story-Telling":countOption2, 
+      "Conversational":countOption3
+    };
   }
 
+  // print out the content of learningPreferences 
+// Create a message from the learningPreferences dictionary
+  var resultText = "Your Learning Preferences:\n";
+  for (var key in learningPreferences) {
+      if (learningPreferences.hasOwnProperty(key)) {
+          resultText += key + ": " + (learningPreferences[key] * 100).toFixed(2) + "%\n";
+      }
+  }
   // Show the results section
   var resultsSection = document.getElementById('results-section');
   resultsSection.style.display = 'block';
 
   // Set the result message text
-  var resultMessageElement = document.getElementById('resultMessage');
-  resultMessageElement.textContent = resultMessageText;
+  var resultElement = document.getElementById('resultMessage');
+  resultElement.textContent = resultText;
 
   // Scroll to the results section
   resultsSection.scrollIntoView();
