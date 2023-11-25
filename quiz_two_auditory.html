@@ -249,7 +249,11 @@
 
     <!-- JavaScript for Navigation and Quiz Start -->
     <!-- change this script source source to it directs to a different location -->
-    <script src="quizTwoLogic.js"></script> 
+    <script type="module">
+        import { getCurrentUserId, processSurveyResults } from './firebaseHandler.js';
+        window.getCurrentUserId = getCurrentUserId; // to make it available globally if needed elsewhere
+    </script>
+    <script src="quizTwoLogic.js"></script>
     
 </body>
 </html>

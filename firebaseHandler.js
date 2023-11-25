@@ -1,6 +1,10 @@
 // firebaseHandler.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getDatabase, ref, push, set, query, orderByChild, equalTo, get } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js"; // Import for Firebase Authentication
+
+
+// var learningPreferences = localStorage.getItem('learningPreferences');
 
 
 const firebaseConfig = {
@@ -9,7 +13,22 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
+const auth = getAuth(app); // Initialize Firebase Authentication
 
+// Function to get current user ID
+function getCurrentUserId() {
+  return new Promise((resolve, reject) => {
+      onAuthStateChanged(auth, (user) => {
+          if (user) {
+              // User is signed in, return the User ID.
+              resolve(user.uid);
+          } else {
+              // No user is signed in.
+              reject('No user logged in');
+          }
+      });
+  });
+}
 document.getElementById('signupForm').addEventListener('submit', function(e) {
     e.preventDefault();
   
@@ -68,4 +87,29 @@ get(emailQuery).then((snapshot) => {
 });
 
 });
+
+function saveLearningPreferences(userId, learningPreferences) {
+  return new Promise((resolve, reject) => {
+      const preferencesRef = ref(database, 'Users/' + userId + '/learningPreferences');
+      set(preferencesRef, learningPreferences)
+      .then(() => resolve())
+      .catch(error => reject(error));
+  });
+}
+
+function processSurveyResults(userId) {
+  var learningPreferences = JSON.parse(localStorage.getItem('learningPreferences'));
+  if (learningPreferences) {
+      saveLearningPreferences(userId, learningPreferences).then(() => {
+          console.log('Learning preferences saved for user:', userId);
+          // Additional logic after saving...
+      }).catch((error) => {
+          console.error('Error saving learning preferences: ', error);
+      });
+  }
+}
+
+export { getCurrentUserId };
+export { processSurveyResults };
+
   
