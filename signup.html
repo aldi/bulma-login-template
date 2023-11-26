@@ -61,7 +61,25 @@
         </div>
       </div>
     </section>
-    <script type="module" src="firebaseHandler.js"></script>
+    <script type="module">
+      import { signUpUser } from './firebaseHandlerSignUp.js';
+    
+      document.getElementById('signupForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const email = document.querySelector('[name="username"]').value;
+        const password = document.querySelector('[name="password"]').value;
+        
+        signUpUser(email, password)
+          .then(userId => {
+            console.log('User signed up with ID:', userId);
+            // Redirect to next page or perform next action
+          })
+          .catch(error => {
+            console.error('Sign up failed:', error);
+            alert(error.message);
+          });
+      });
+    </script>
 
   </body>
 </html>
