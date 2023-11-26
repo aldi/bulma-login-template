@@ -1,11 +1,7 @@
 // firebaseHandler.js
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getDatabase, ref, push, set, query, orderByChild, equalTo, get } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js"; // Import for Firebase Authentication
-
-
-// var learningPreferences = localStorage.getItem('learningPreferences');
-
+import { getAuth } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
 const firebaseConfig = {
     //replace here with api info
@@ -13,22 +9,45 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
-const auth = getAuth(app); // Initialize Firebase Authentication
+const auth = getAuth(app)
 
-// Function to get current user ID
-function getCurrentUserId() {
-  return new Promise((resolve, reject) => {
-      onAuthStateChanged(auth, (user) => {
-          if (user) {
-              // User is signed in, return the User ID.
-              resolve(user.uid);
-          } else {
-              // No user is signed in.
-              reject('No user logged in');
-          }
-      });
+function signUpUser(email, password) {
+  const usersRef = ref(database, 'Users');
+  const emailQuery = query(usersRef, orderByChild('email'), equalTo(email));
+
+  return get(emailQuery).then((snapshot) => {
+      if (snapshot.exists()) {
+          throw new Error('An account with this email already exists.');
+      } else {
+          // Create a new user reference with a unique key
+          const newUserRef = push(usersRef);
+          const passwordHash = CryptoJS.SHA256(password).toString();
+
+          // Set the user data at the new reference
+          return set(newUserRef, {
+              email: email,
+              password: passwordHash
+          }).then(() => {
+              // Store the userId in localStorage for later use
+              localStorage.setItem('userId', newUserRef.key);
+              console.log("We are about to swtich to quiz one and userID has been saved")
+              window.location.href = 'quiz_one.html'
+              return newUserRef.key; // Return the new userId
+          });
+      }
   });
 }
+
+export { signUpUser };
+
+
+
+
+
+
+
+
+/*
 document.getElementById('signupForm').addEventListener('submit', function(e) {
     e.preventDefault();
   
@@ -87,29 +106,4 @@ get(emailQuery).then((snapshot) => {
 });
 
 });
-
-function saveLearningPreferences(userId, learningPreferences) {
-  return new Promise((resolve, reject) => {
-      const preferencesRef = ref(database, 'Users/' + userId + '/learningPreferences');
-      set(preferencesRef, learningPreferences)
-      .then(() => resolve())
-      .catch(error => reject(error));
-  });
-}
-
-function processSurveyResults(userId) {
-  var learningPreferences = JSON.parse(localStorage.getItem('learningPreferences'));
-  if (learningPreferences) {
-      saveLearningPreferences(userId, learningPreferences).then(() => {
-          console.log('Learning preferences saved for user:', userId);
-          // Additional logic after saving...
-      }).catch((error) => {
-          console.error('Error saving learning preferences: ', error);
-      });
-  }
-}
-
-export { getCurrentUserId };
-export { processSurveyResults };
-
-  
+*/
