@@ -4,6 +4,7 @@ import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.6.0
 
 const firebaseConfig = {
     // Replace with your Firebase API info
+   
 };
 
 const app = initializeApp(firebaseConfig);
@@ -15,22 +16,25 @@ function saveLearningPreferences(userId, learningPreferences) {
 }
 
 const userId = localStorage.getItem('userId'); // Retrieve the userId stored earlier
-        const learningPreferences = localStorage.getItem("learningPreferences");
-        console.log("right before save learning prefs")
-        if (userId) {
-          saveLearningPreferences(userId, learningPreferences)
-            .then(() => {
-              console.log('Learning preferences saved');
-              // Continue to next action
-            })
-            .catch(error => {
-              console.error('Failed to save learning preferences:', error);
-            });
-        } 
-        else {
-            console.log("userID must be buggy")
-        }
-        console.log("right after save learning prefs")
+localStorage.setItem('userId', userId);
+export { saveLearningPreferences };
+
+        // const learningPreferences = localStorage.getItem("learningPreferences");
+        // console.log("right before save learning prefs")
+        // if (userId) {
+        //   saveLearningPreferences(userId, learningPreferences)
+        //     .then(() => {
+        //       console.log('Learning preferences saved');
+        //       // Continue to next action
+        //     })
+        //     .catch(error => {
+        //       console.error('Failed to save learning preferences:', error);
+        //     });
+        // } 
+        // else {
+        //     console.log("userID must be buggy")
+        // }
+        // console.log("right after save learning prefs")
 
 
 

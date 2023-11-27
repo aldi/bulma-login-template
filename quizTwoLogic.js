@@ -1,8 +1,12 @@
+import { saveLearningPreferences } from './firebaseHandlerQuiz.js';
+
 var totalQuestions = 0;
 // Retrieve from local storage
 var learningTypeGlobal = localStorage.getItem('learningType');
+var isSubmitting = false; // Flag to prevent multiple submissions
 
-function navigate(direction, currentQuestionIndex) {
+
+window.navigate = function(direction, currentQuestionIndex) {
 
     var currentQuestion = document.getElementById('question' + currentQuestionIndex); // Use currentQuestionIndex
     var radios = currentQuestion.getElementsByTagName('input');
@@ -37,16 +41,19 @@ function navigate(direction, currentQuestionIndex) {
         }
         document.getElementById('question' + newQuestionIndex).style.display = 'block';
     }
-}
+};
 
-function startQuiz() {
+window.startQuiz = function(){
     document.getElementById('home-screen').style.display = 'none';
     document.getElementById('question1').style.display = 'block';
-}
+};
 
-function handleSubmit(event) {
+window.handleSubmit = function(event) {
+  if (isSubmitting) return; 
+  isSubmitting = true;
   // Prevent the default form submission
   event.preventDefault();
+  event.stopPropagation();
 
   var form = document.getElementById('quiz-form');
   var answers = {};
@@ -118,5 +125,35 @@ function handleSubmit(event) {
 
   // Assuming learningPreferences is correctly calculated
   // Save it to localStorage
+
+  const userId = localStorage.getItem('userId');
+  learningPreferences = JSON.stringify(learningPreferences);
+
+  if (userId) {
+      saveLearningPreferences(userId, learningPreferences)
+          .then(() => {
+              console.log('Learning preferences saved successfully.');
+              console.trace(); // This will give you a stack trace in the console
+          })
+          .catch((error) => {
+              console.error('Error saving learning preferences:', error);
+          });
+  } else {
+      console.error('No userId found in localStorage.');
+      isSubmitting = false; // Reset the flag if userId was not found
+  }
   localStorage.setItem('learningPreferences', JSON.stringify(learningPreferences));
+};
+  // console.log(userId);
+  // console.log(learningPreferences);
+  // // saveLearningPreferences(userId, learningPreferences);
+  // saveLearningPreferences(userId, learningPreferences);
+  
+
+
+// }
+if (!window.submitEventListenerAdded) {
+  document.getElementById('quiz-form').addEventListener('submit', window.handleSubmit);
+  window.submitEventListenerAdded = true; // Set a flag that the event listener has been added
 }
+// document.getElementById('quiz-form').addEventListener('submit', handleSubmit);
