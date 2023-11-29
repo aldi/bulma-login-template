@@ -4,8 +4,6 @@ import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.6.0
 
 const firebaseConfig = {
     // Replace with your Firebase API info
-
-   
 };
 
 const app = initializeApp(firebaseConfig);
