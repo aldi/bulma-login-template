@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat UI</title>
+<style>
+        body { 
+        font-family: Arial, sans-serif; 
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        background: #eee;
+    }
+    .chat-container {
+        flex: 1;
+        padding: 1rem;
+        padding-bottom: 80px; /* Space for input container */
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column-reverse; /* Keep input at the bottom */
+        align-items: center; /* Center chat box */
+    }
+    .chat-box { 
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; /* Align messages to the right */
+        overflow-y: auto;
+        width: 70%; /* Match the input width for alignment */
+        max-height: 100%;
+        margin-top: 1rem;
+    }
+    .chat-message { 
+        word-wrap: break-word;
+        margin-top: 10px; /* Spacing between messages */
+        padding: 10px;
+        border-radius: 10px;
+        background-color: #d2e5f9;
+        align-self: flex-end;
+        max-width: 80%;
+    }
+    .chat-input-container {
+        width: 70%; /* Adjusted width */
+        position: fixed;
+        bottom: 1rem;
+        padding: 10px;
+        display: flex;
+        justify-content: space-between; /* Space between input and send button */
+        background: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .chat-input { 
+        flex-grow: 1;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        outline: none;
+    }
+    .send-icon {
+        cursor: pointer;
+        padding: 10px;
+        background-color: #ccc;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .send-arrow {
+        border: solid white;
+        border-width: 0 3px 3px 0;
+        display: inline-block;
+        padding: 3px;
+        transform: rotate(-45deg);
+    }
+</style>
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-input-container">
+        <input type="text" id="chat-input" class="chat-input" placeholder="Type message here">
+        <div class="send-icon" onclick="sendMessageClick()">
+            <i class="send-arrow"></i>
+        </div>
+    </div>
+    <div id="chat-box" class="chat-box">
+        <!-- Chat messages will be appended here -->
+    </div>
+</div>
+
+<script>
+    function sendMessage() {
+        var input = document.getElementById('chat-input');
+        var message = input.value.trim();
+        if (message === '') return;
+
+        var chatBox = document.getElementById('chat-box');
+        var messageElement = document.createElement('div');
+        messageElement.classList.add('chat-message');
+        messageElement.textContent = message;
+        chatBox.appendChild(messageElement); // Add the new message at the end (bottom)
+        input.value = '';
+        // Scroll to the latest message
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    document.getElementById('chat-input').addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            sendMessage();
+        }
+    });
+
+    function sendMessageClick() {
+        sendMessage();
+    }
+</script>
+
+</body>
+</html>
