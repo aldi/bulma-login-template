@@ -77,7 +77,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             // Handle learning preferences
             if (learningPreferences) {
                 localStorage.setItem('learningPreferences', JSON.stringify(learningPreferences));
-                // Redirect or update UI as needed
+                window.location.href = 'chat.html';
             }
         })
         .catch(error => {
