@@ -5,13 +5,6 @@ import { getDatabase, ref, get, query, orderByChild, equalTo } from "https://www
 // import CryptoJS from 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';
 const firebaseConfig = {
     // Replace here with your Firebase API info
-    apiKey: "AIzaSyCN-En8Aggb8gRm9OcNnkn9BpoqImHsiOs",
-    authDomain: "gpt-tutor-85689.firebaseapp.com",
-    projectId: "gpt-tutor-85689",
-    storageBucket: "gpt-tutor-85689.appspot.com",
-    messagingSenderId: "749346035662",
-    appId: "1:749346035662:web:e4fcae5979840da3503d9f",
-    measurementId: "G-YXQQHJEHT8"
 };
 
 // Initialize Firebase
