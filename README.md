@@ -1,2 +1,2 @@
 # fun fun fun 
-we got the desing of our website from aldi bulga whale
+we got the design of our login page from aldi bulga whale
