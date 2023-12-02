@@ -68,3 +68,30 @@ body {
     padding: 3px;
     transform: rotate(-45deg);
 }
+/* CSS for received messages */
+.received {
+    text-align: left;
+    background-color: #fefec8; /* pastel yellow */
+    /* Other styling as needed */
+}
+/* CSS for the chat box */
+/* CSS for the chat box */
+#chat-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* CSS for received messages */
+.received {
+    align-self: flex-start;
+    background-color: #fefec8; /* pastel yellow */
+    /* Additional styles for padding, margin, etc. */
+}
+
+/* CSS for sent messages (if you need it) */
+.sent {
+    align-self: flex-end;
+    /* Styles for sent messages */
+}
+
+
