@@ -30,7 +30,7 @@ from langchain.agents import AgentExecutor
 openai.api_key = ''
 
 # load PDF documents using PyMuPDF
-loader = DirectoryLoader('content/clean_pdfs/', glob="**/*.pdf", show_progress=True, loader_cls=PyMuPDFLoader)
+loader = DirectoryLoader('content/', glob="**/*.pdf", show_progress=True, loader_cls=PyMuPDFLoader)
 docs = loader.load()
 
 # chunk pdf texts and create Chroma vector db
