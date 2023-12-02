@@ -10,21 +10,22 @@ body {
 .chat-container {
     flex: 1;
     padding: 1rem;
-    padding-bottom: 80px; /* Space for input container */
+    padding-bottom: 80px; 
     box-sizing: border-box;
     display: flex;
-    flex-direction: column-reverse; /* Keep input at the bottom */
-    align-items: center; /* Center chat box */
+    flex-direction: column-reverse; 
+    align-items: center; 
 }
+
 .chat-box { 
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Align messages to the right */
     overflow-y: auto;
-    width: 70%; /* Match the input width for alignment */
+    width: 70%; 
     max-height: 100%;
     margin-top: 1rem;
 }
+
 .chat-message { 
     word-wrap: break-word;
     margin-top: 10px; /* Spacing between messages */
@@ -35,16 +36,17 @@ body {
     max-width: 80%;
 }
 .chat-input-container {
-    width: 70%; /* Adjusted width */
+    width: 70%; 
     position: fixed;
     bottom: 1rem;
     padding: 10px;
     display: flex;
-    justify-content: space-between; /* Space between input and send button */
+    justify-content: space-between; 
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
+
 .chat-input { 
     flex-grow: 1;
     padding: 10px 20px;
@@ -68,3 +70,65 @@ body {
     padding: 3px;
     transform: rotate(-45deg);
 }
+/* CSS for received messages */
+.received {
+    text-align: left;
+    background-color: #fefec8; /* pastel yellow */
+    /* Other styling as needed */
+}
+/* CSS for the chat box */
+/* CSS for the chat box */
+#chat-box {
+    display: flex;
+    flex-direction: column;
+}
+
+/* CSS for received messages */
+.received {
+    align-self: flex-start;
+    background-color: #fefec8; /* pastel yellow */
+    /* Additional styles for padding, margin, etc. */
+}
+
+/* CSS for sent messages (if you need it) */
+.sent {
+    align-self: flex-end;
+    /* Styles for sent messages */
+}
+
+.chat-message.received,
+.typing-indicator { 
+    align-self: flex-start; /* Apply left alignment to received messages and typing indicator */
+    background-color: #fefec8; /* pastel yellow for received messages */
+}
+
+.typing-indicator {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10px;
+    margin: 5px;
+    background-color: transparent;
+    border-radius: 18px;
+    max-width: 60px;
+}
+
+.dot {
+    height: 8px;
+    width: 8px;
+    background-color: #000;
+    border-radius: 50%;
+    animation: typing 1.5s infinite;
+}
+
+.chat-message.sent { 
+    align-self: flex-end; /* Only apply right alignment to sent messages */
+}
+
+@keyframes typing {
+    0% { opacity: 0.2; }
+    50% { opacity: 1; }
+    100% { opacity: 0.2; }
+}
+
+

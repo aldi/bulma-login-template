@@ -4,7 +4,7 @@ function displayMessage(message, className) {
     messageElement.classList.add('chat-message', className);
     messageElement.textContent = message;
     chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight;
+    chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight; // Scrolls to the bottom
 }
 
 function sendMessage() {
@@ -29,6 +29,7 @@ function sendMessageClick() {
 }
 
 function callOpenAI(message) {
+    showTypingIndicator();
     fetch('http://127.0.0.1:5000/get-response', {
         method: 'POST',
         headers: {
@@ -43,6 +44,7 @@ function callOpenAI(message) {
         return response.json();
     })
     .then(data => {
+        hideTypingIndicator();
         if(data.error) {
             console.error('Error from server:', data.error);
         } else {
@@ -50,9 +52,37 @@ function callOpenAI(message) {
         }
     })
     .catch(error => {
+        hideTypingIndicator();
         console.error('There has been a problem with your fetch operation:', error);
     });
 }
+function showTypingIndicator() {
+    const chatBox = document.getElementById('chat-box');
+    const typingIndicator = document.createElement('div');
+    typingIndicator.id = 'typing-indicator';
+    typingIndicator.className = 'typing-indicator';
+    typingIndicator.innerHTML = `
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    `;
+    // Append the typing indicator to the chat box
+    chatBox.appendChild(typingIndicator);
+    // Make sure the chat box scrolls to the bottom
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+
+
+function hideTypingIndicator() {
+    const typingIndicator = document.getElementById('typing-indicator');
+    if (typingIndicator) {
+        typingIndicator.remove(); // Removes the typing indicator from the DOM
+        const chatBox = document.getElementById('chat-box');
+        chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight; // Scrolls to the bottom
+    }
+}
+
 
     // fetch('http://127.0.0.1:5000/get-response', {
     //     method: 'POST',
