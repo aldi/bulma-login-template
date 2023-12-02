@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chat UI</title>
+<link rel="stylesheet" href="css/chatVis.css" />
+</head>
+<body>
+
+<div class="chat-container">
+    <div class="chat-input-container">
+        <input type="text" id="chat-input" class="chat-input" placeholder="Type message here">
+        <div class="send-icon" onclick="sendMessageClick()">
+            <i class="send-arrow"></i>
+        </div>
+    </div>
+    <div id="chat-box" class="chat-box">
+        <!-- Chat messages will be appended here -->
+    </div>
+</div>
+
+<script src="./chatFunc.js"></script>
+
+</body>
+</html>
+
+<!-- this is here -->

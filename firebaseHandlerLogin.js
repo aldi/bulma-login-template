@@ -5,6 +5,7 @@ import { getDatabase, ref, get, query, orderByChild, equalTo } from "https://www
 // import CryptoJS from 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';
 const firebaseConfig = {
     // Replace here with your Firebase API info
+
 };
 
 // Initialize Firebase
@@ -77,7 +78,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             // Handle learning preferences
             if (learningPreferences) {
                 localStorage.setItem('learningPreferences', JSON.stringify(learningPreferences));
-                // Redirect or update UI as needed
+                window.location.href = 'chat.html';
             }
         })
         .catch(error => {
