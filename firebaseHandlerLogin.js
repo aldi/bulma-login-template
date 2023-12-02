@@ -6,6 +6,7 @@ import { getDatabase, ref, get, query, orderByChild, equalTo } from "https://www
 const firebaseConfig = {
     // Replace here with your Firebase API info
 
+
 };
 
 // Initialize Firebase
