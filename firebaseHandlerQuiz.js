@@ -3,7 +3,8 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebas
 import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
 
 const firebaseConfig = {
-    // Replace with your Firebase API info
+  // Replace with your Firebase API info
+
 };
 
 const app = initializeApp(firebaseConfig);
