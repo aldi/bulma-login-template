@@ -1,7 +1,5 @@
 import openai
 import os
-
-# from flask import Flask, request
 import json
 
 from langchain.document_loaders import DirectoryLoader
@@ -89,7 +87,3 @@ llm = ChatOpenAI(temperature = 0, model = "gpt-4-1106-preview")
 
 agent = OpenAIFunctionsAgent(llm=llm, tools=tools, prompt=prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools, memory=memory, verbose=True)
-
-# # Run the Flask app
-# if __name__ == '__main__':
-#     app.run(debug=True)

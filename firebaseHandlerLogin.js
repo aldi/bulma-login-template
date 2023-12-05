@@ -5,6 +5,13 @@ import { getDatabase, ref, get, query, orderByChild, equalTo } from "https://www
 
 const firebaseConfig = {
     // Replace here with your Firebase API info
+    apiKey: "AIzaSyCN-En8Aggb8gRm9OcNnkn9BpoqImHsiOs",
+    authDomain: "gpt-tutor-85689.firebaseapp.com",
+    projectId: "gpt-tutor-85689",
+    storageBucket: "gpt-tutor-85689.appspot.com",
+    messagingSenderId: "749346035662",
+    appId: "1:749346035662:web:e4fcae5979840da3503d9f",
+    measurementId: "G-YXQQHJEHT8"
 
 };
 
@@ -12,39 +19,6 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app); // Initialize Firebase Auth
 const database = getDatabase(app); // Initialize Firebase Database
-
-// Function to log in user and retrieve preferences
-// function loginUser(email, password) {
-//     const usersRef = ref(database, 'Users');
-//     const emailQuery = query(usersRef, orderByChild('email'), equalTo(email));
-  
-//     return get(emailQuery).then((snapshot) => {
-//       if (!snapshot.exists()) {
-//         throw new Error('No account found with the provided email.');
-//       }
-  
-//       // Check the password hash against the one stored in the database
-//       const userData = snapshot.val();
-//       const userId = Object.keys(userData)[0]; // This assumes that emails are unique
-//       const user = userData[userId];
-  
-//       const passwordHash = CryptoJS.SHA256(password).toString();
-//       if (passwordHash === user.password) {
-//         // Password is correct, retrieve the user information
-//         console.log('User logged in:', user);
-//         // Store the userId in localStorage or in your app's state
-//         localStorage.setItem('userId', userId);
-//         // Here you could redirect to a new page or do something else
-//         return fetchLearningPreferences(userId);
-//       } else {
-//         throw new Error('Incorrect password.');
-//       }
-//     }).catch((error) => {
-//       console.error('Login error:', error);
-//       alert('Login failed: ' + error.message);
-//       return Promise.reject(error);
-//     });
-//   }
 
 function loginUser(email, password) {
   const usersRef = ref(database, 'Users');
@@ -89,7 +63,7 @@ function loginUser(email, password) {
             .catch(error => console.error('Error sending preferences:', error));
             
               // Redirect or perform other actions
-            //   window.location.href = 'chat.html';
+              window.location.href = 'chat.html';
           });
       } else {
           throw new Error('Incorrect password.');
