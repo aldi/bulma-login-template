@@ -1,7 +1,5 @@
 import openai
 import os
-
-# from flask import Flask, request
 import json
 
 from langchain.document_loaders import DirectoryLoader
@@ -55,14 +53,20 @@ memory_key = "history"
 memory = ConversationBufferMemory(memory_key=memory_key, return_messages=True)
 
 learning_style = "Visual: Bullet Points"
-# app = Flask(__name__)
-# @app.route('/api/savePreferences', methods=['POST'])
-# def save_preferences():
-#     data = request.json
-#     # need to take these learning preferences and get the values and choose
-#     learning_prefs = data['learningPreferences']
-#     # Process or save the learning preferences as needed
-#     return json.dumps({'status': 'success'})
+
+# added this here
+def get_learning_preferences():
+    try:
+        with open('learning_preferences.json', 'r') as file:
+            return json.load(file)
+    except FileNotFoundError:
+        return None  # or return default preferences
+    
+# Example usage in backend.py
+preferences = get_learning_preferences()
+print("before preferences")
+print(preferences)
+print("after preferences")
 
 system_message = SystemMessage(
         content=(
@@ -83,7 +87,3 @@ llm = ChatOpenAI(temperature = 0, model = "gpt-4-1106-preview")
 
 agent = OpenAIFunctionsAgent(llm=llm, tools=tools, prompt=prompt)
 agent_executor = AgentExecutor(agent=agent, tools=tools, memory=memory, verbose=True)
-
-# # Run the Flask app
-# if __name__ == '__main__':
-#     app.run(debug=True)
