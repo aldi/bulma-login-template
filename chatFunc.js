@@ -1,10 +1,27 @@
-function displayMessage(message, className) {
+// function displayMessage(message, className) {
+//     const chatBox = document.getElementById('chat-box');
+//     const messageElement = document.createElement('div');
+//     messageElement.classList.add('chat-message', className);
+//     messageElement.textContent = message;
+//     chatBox.appendChild(messageElement);
+//     chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight; // Scrolls to the bottom
+// }
+
+function displayMessage(message, className, isMarkdown = false) {
     const chatBox = document.getElementById('chat-box');
     const messageElement = document.createElement('div');
     messageElement.classList.add('chat-message', className);
-    messageElement.textContent = message;
+
+    if (isMarkdown) {
+        const converter = new showdown.Converter();
+        const html = converter.makeHtml(message);
+        messageElement.innerHTML = html; // Set HTML content
+    } else {
+        messageElement.textContent = message; // Set text content
+    }
+
     chatBox.appendChild(messageElement);
-    chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight; // Scrolls to the bottom
+    chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
 }
 
 function sendMessage() {
@@ -48,7 +65,7 @@ function callOpenAI(message) {
         if(data.error) {
             console.error('Error from server:', data.error);
         } else {
-            displayMessage(data.response, 'received');
+            displayMessage(data.response, 'received', true); 
         }
     })
     .catch(error => {

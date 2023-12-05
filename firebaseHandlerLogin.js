@@ -2,10 +2,9 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 import { getDatabase, ref, get, query, orderByChild, equalTo } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-database.js";
-// import CryptoJS from 'https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js';
+
 const firebaseConfig = {
     // Replace here with your Firebase API info
-
 };
 
 // Initialize Firebase
@@ -35,7 +34,7 @@ function loginUser(email, password) {
         // Store the userId in localStorage or in your app's state
         localStorage.setItem('userId', userId);
         // Here you could redirect to a new page or do something else
-        return user;
+        return fetchLearningPreferences(userId);
       } else {
         throw new Error('Incorrect password.');
       }
@@ -65,7 +64,6 @@ function fetchLearningPreferences(userId) {
         });
 }
 
-
 // Event listener for login form submission
 document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
@@ -77,6 +75,8 @@ document.getElementById('login-form').addEventListener('submit', function(event)
         .then(learningPreferences => {
             // Handle learning preferences
             if (learningPreferences) {
+                console.log(learningPreferences);
+                // learning preferences are saved to be retrieved
                 localStorage.setItem('learningPreferences', JSON.stringify(learningPreferences));
                 window.location.href = 'chat.html';
             }
@@ -87,3 +87,6 @@ document.getElementById('login-form').addEventListener('submit', function(event)
             alert('Login failed: ' + error.message);
         });
 });
+
+
+
