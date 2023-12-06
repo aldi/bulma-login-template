@@ -47,9 +47,9 @@ document.getElementById('chat-input').addEventListener('keypress', function(even
     }
 });
 
-function sendMessageClick() {
-    sendMessage();
-}
+// function sendMessageClick() {
+//     sendMessage();
+// }
 
 function callOpenAI(message) {
     showTypingIndicator();
