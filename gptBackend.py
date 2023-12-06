@@ -74,7 +74,7 @@ print("after preferences")
 preferences_descriptions = {
     "Linguistic" : "prefers lists, text blocks, and summarization",
     "Symbolic": "prefers bullet points, symbols, mathematical formulas, and flowcharts",
-    "Artistic": "prefers color, layout, design, and aesthetically pleasing organization of information",
+    "Artistic": "prefers aesthetic use of formatting including bold, itallics, underlining",
     "Poetic": "prefers mnemonic devices, rhythm, and word-play", 
     "Story-Telling": "prefers real-life scenarios, stories, or other anecdotes as teaching tools", 
     "Conversational": "prefers casual conversation/discussion with others to review and learn content"

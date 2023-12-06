@@ -5,7 +5,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth
 
 const firebaseConfig = {
 
-  };
+};
 
 const app = initializeApp(firebaseConfig);
 const database = getDatabase(app);
