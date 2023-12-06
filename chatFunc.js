@@ -16,13 +16,19 @@ function displayMessage(message, className, isMarkdown = false) {
         const converter = new showdown.Converter();
         const html = converter.makeHtml(message);
         messageElement.innerHTML = html; // Set HTML content
+        MathJax.typesetPromise([messageElement]).then(() => {
+            // This will render any LaTeX in the message element
+            // You can handle any post-render actions here
+        });
     } else {
-        messageElement.textContent = message; // Set text content
+        messageElement.textContent = message;
     }
+    
 
     chatBox.appendChild(messageElement);
     chatBox.scrollTop = chatBox.scrollHeight - chatBox.clientHeight;
 }
+
 
 function sendMessage() {
     const input = document.getElementById('chat-input');

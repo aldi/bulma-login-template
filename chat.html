@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Chat UI</title>
 <link rel="stylesheet" href="css/chatVis.css" />
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],  // for inline math
+        displayMath: [['$$', '$$']],   // for equations that appear on their own line
+        processEscapes: true,          // allows you to use '\\' to escape LaTeX commands
+        processEnvironments: true      // processes \begin{...}...\end{...} outside math mode
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>  
 </head>
 <body>
 

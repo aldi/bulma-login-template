@@ -30,6 +30,9 @@ from langchain.prompts import MessagesPlaceholder
 from langchain.chat_models import ChatOpenAI
 from langchain.agents import AgentExecutor
 
+from dotenv import load_dotenv
+load_dotenv()  
+
 # # Retrieve API key
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -54,7 +57,7 @@ tools = [tool]
 memory_key = "history"
 memory = ConversationBufferMemory(memory_key=memory_key, return_messages=True)
 
-learning_style = "Visual: Bullet Points"
+learning_style = "Visual: Story-telling"
 # app = Flask(__name__)
 # @app.route('/api/savePreferences', methods=['POST'])
 # def save_preferences():
@@ -66,11 +69,11 @@ learning_style = "Visual: Bullet Points"
 
 system_message = SystemMessage(
         content=(
-            "You are a tutor for LIGN 167, a deep learning and NLP course at UCSD, with immense knowledge and experience in the field."
-            "Answer students' questions based on your knowledge and conversation history. Do not make up answers."
+            "You are a friendly tutor for LIGN 167, a deep learning and NLP course at UCSD, with immense knowledge and experience in the field."
+            "Answer students' questions in a simple, easily-understandable manner based on your knowledge and conversation history. Do not make up answers. Provide examples to make concepts more understandable."
+            "You should respond in a conversational, friendly, helpful manner which uses elements from a " + learning_style + " learning style only where conducive to crafting the most effective response."
             "If you do not know the answer to a question, just say \'I don't know\'."
             "If asked a question not relevant to deep learning or NLP, just say \'I cannot answer your question\'."
-            "Tailor your response to match a " + learning_style + " learning style."
         )
 )
 
