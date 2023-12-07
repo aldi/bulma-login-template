@@ -13,9 +13,12 @@ body {
     padding-bottom: 80px; 
     box-sizing: border-box;
     display: flex;
-    flex-direction: column-reverse; 
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    height: 100vh; 
     align-items: center; 
 }
+
 
 .chat-box { 
     display: flex;
@@ -24,6 +27,7 @@ body {
     width: 70%; 
     max-height: 100%;
     margin-top: 1rem;
+    margin-bottom: 10px;
 }
 
 .chat-message { 
