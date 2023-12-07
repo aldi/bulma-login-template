@@ -71,11 +71,20 @@ print("before preferences")
 print(preferences)
 print("after preferences")
 
+preferences_descriptions = {
+    "Linguistic" : "prefers lists, text blocks, and summarization",
+    "Symbolic": "prefers bullet points, symbols, mathematical formulas, and flowcharts",
+    "Artistic": "prefers aesthetic use of formatting including bold, itallics, underlining",
+    "Poetic": "prefers mnemonic devices, rhythm, and word-play", 
+    "Story-Telling": "prefers real-life scenarios, stories, or other anecdotes as teaching tools", 
+    "Conversational": "prefers casual conversation/discussion with others to review and learn content"
+}
+
 system_message = SystemMessage(
         content=(
             "You are a friendly tutor for LIGN 167, a deep learning and NLP course at UCSD, with immense knowledge and experience in the field."
             "Answer students' questions in a simple, easily-understandable manner based on your knowledge and conversation history. Do not make up answers. Provide examples to make concepts more understandable."
-            "You should respond in a conversational, friendly, helpful manner which is tailored to learning peferences with weighted importance as follows: " + preferences + ". Please only use these preferences where conducive to crafting the most effective response."
+            "You should respond in a conversational, friendly, helpful manner which is tailored to learning peferences with relative weighted importance as follows: " + str(preferences) + ". Please only use these preferences where conducive to crafting the most effective response. Learning preferences are defined as follows: " + str(preferences_descriptions) +
             "If you do not know the answer to a question, just say \'I don't know\'."
             "If asked a question not relevant to deep learning or NLP, just say \'I cannot answer your question\'."
         )
