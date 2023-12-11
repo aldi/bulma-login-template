@@ -75,4 +75,14 @@ a:hover {
   color: #888;
 }
 
+.chat-header {
+  background-color: #3273dc; /* Adjust the color as needed */
+  padding: 10px 20px; /* Adjust the padding as needed */
+  text-align: center; /* Center the header text */
+}
 
+.chat-header h1 {
+  margin: 0; /* Removes default margin */
+  font-size: 1.5rem; /* Adjust the size as needed */
+  color: #f4f4f4; /* Adjust text color as needed */
+}
