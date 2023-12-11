@@ -25,7 +25,7 @@ load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
 # load PDF documents using PayMuPDF
-loader = DirectoryLoader('content/', glob="**/*.pdf", show_progress=True, loader_cls=PyMuPDFLoader)
+loader = DirectoryLoader('../content/', glob="**/*.pdf", show_progress=True, loader_cls=PyMuPDFLoader)
 docs = loader.load()
 
 # chunk pdf texts and create Chroma vector db
