@@ -1,4 +1,4 @@
-import { saveLearningPreferences } from './firebaseHandlerQuiz.js';
+import { saveLearningPreferences } from '/firebase_js/firebaseHandlerQuiz.js';
 
 var totalQuestions = 0;
 // Retrieve from local storage

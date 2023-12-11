@@ -4,6 +4,7 @@ import { getDatabase, ref, push, set, query, orderByChild, equalTo, get } from "
 import { getAuth } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-auth.js";
 
 const firebaseConfig = {
+  
 };
 
 const app = initializeApp(firebaseConfig);
